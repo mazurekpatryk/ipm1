@@ -10,35 +10,38 @@
 </head>
 <body>
     <form>
-        <label>1. adres email:</label><br>
+        <label>1. Adres email:</label><br>
         <input type="email" placeholder="marek@gmail.com"><br><br>
 
-        <label>2. kod pocztowy:</label><br>
+        <label>2. Kod pocztowy:</label><br>
         <input type="text" placeholder="97-200" pattern="[0-9]{2}[-][0-9]{3}"><br><br>
 
-        <label>3. numer nip:</label><br>
+        <label>3. Numer nip:</label><br>
         <input type="text" placeholder="123-45-67-890" pattern="[0-9]{3}[-][0-9]{2}[-][0-9]{2}[-][0-9]{3}"><br><br>
 
-        <label>4. numer dowodu:</label><br>
+        <label>4. Numer dowodu:</label><br>
         <input type="text" placeholder="ABC 123456" pattern="[A-Za-z]{3} [0-9]{6}"><br><br>
 
-        <label>5. adres ipv4:</label><br>
+        <label>5. Adres ipv4:</label><br>
         <input type="text" placeholder="192.168.0.1" minlength="7" maxlength="15" size="15" pattern="^((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$"><br><br>
 
-        <label>6. strona www:</label><br>
+        <label>6. Strona www:</label><br>
         <input type="url" placeholder="https://example.com" pattern="https://.*"><br><br>
 
-        <label>7a. ścieżka na dysku:</label><br>
+        <label>7a. Scieżka na dysku:</label><br>
         <input type="text" placeholder="C:\windows\temp" pattern="[a-zA-Z]:(\[a-z]+)+"><br><br>
 
-        <label>7b. ścieżka na dysku duże i małe litery:</label><br>
+        <label>7b. Scieżka na dysku duże i małe litery:</label><br>
         <input type="text" placeholder="C:\Windows\Temp" pattern="[a-zA-Z]:(\[a-zA-Z]+)+"><br><br>
 
-        <label>8. scieżka do pliku w katalogu:</label><br>
+        <label>8. Scieżka do pliku w katalogu:</label><br>
         <input type="text" placeholder="/etc/passwd" pattern="[/]:(\[a-zA-Z]+)+"><br><br>
 
-        <label>9. adres ipv6:</label><br>
+        <label>9. Adres ipv6:</label><br>
         <input type="text" placeholder="2001:0db8:0:0:0:0:1428:57ab" pattern="^([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$"><br><br>
+
+        <label>10. Numer telefonu:</label><br>
+        <input type="text" placeholder="123-456-789" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"><br><br>
 
     </form>
 </body>
