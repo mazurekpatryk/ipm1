@@ -24,8 +24,15 @@
 
         <h3>Zadania.2</h3><br>
         <label>3) Proszę dodać element UI pozwalający na wybranie daty z kalendarza:</label><br>
+        <input type="date" id="start" name="trip-start" required><br><br>
 
-        <input type="date" id="start" name="trip-start">
+        <label>4) Proszę dodać element ui wykorzystujący poprzedni punkt ale limitujący wybór do jedno z pracujących dni (pon-pn) w tym tygodniu.</label><br>
+        <input type="date" id="start" name="trip-start" min="2021-03-15" max="2021-03-19" required><br><br>
+    
+        <label>5) Proszę dodać dwa elementy UI pozwalające na wpisanie godziny:</label><br>
+        <label>a) w formacie 12 godzinnym</label><br>
+        <label>b) w formacie 24 godzinnym</label><br>
+
     </form>
 </body>
 </html>
