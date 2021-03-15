@@ -31,7 +31,10 @@
     
         <label>5) Proszę dodać dwa elementy UI pozwalające na wpisanie godziny:</label><br>
         <label>a) w formacie 12 godzinnym</label><br>
-        <input type="time" min="01:00" max="12:59" required><br><br>
+        <input type="time" min="01:00" max="12:59" required><select>
+            <option>PM</option>
+            <option>AM</option>
+          </select><br><br>
 
         <label>b) w formacie 24 godzinnym</label><br>
         <input type="time" min="00:00" max="23:59" required><br><br>
