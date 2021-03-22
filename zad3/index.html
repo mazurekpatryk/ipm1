@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -9,9 +10,29 @@
 
 
 </head>
+
 <body>
 
-    
-    <script src='script.js'></script>
+    <div style="top: 50px; float: left;">
+        <canvas id="canvas" width="600" height="450" style="border:1px solid black;"></canvas>
+    </div>    
+    <div width="10%" height="100%" style="float: left;">
+        <button id="btnGeneruj">Generuj</button>
+    </div>
+
+    <script type="text/javascript">
+        var canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext('2d');
+        var btnGeneruj = document.getElementById("btnGeneruj");
+
+        btnGeneruj.addEventListener("click", function(){
+            let rect = ctx.fillRect(10, 10, 50, 50);
+        });
+
+
+
+
+    </script>
 </body>
+
 </html>
