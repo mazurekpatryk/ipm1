@@ -68,7 +68,9 @@
                 if (dragok) {
                     x = e.pageX - canvas.offsetLeft;
                     y = e.pageY - canvas.offsetTop;
-
+                    if(y>436){
+                        y= 435;
+                    }
                 }
             }
 
