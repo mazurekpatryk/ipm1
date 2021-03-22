@@ -14,7 +14,7 @@
 <body>
 
     <div style="top: 50px; float: left;">
-        <canvas id="canvas" width="1500px" height="450" style="border:1px solid black;"></canvas>
+        <canvas id="canvas" width="1500px" height="450" style="border-bottom :30px solid black;"></canvas>
     </div>
     <div style="float: left;">
         <button id="btnGeneruj" style="float: left; width:400px; height:100px">Generuj</button>
@@ -59,7 +59,7 @@
             function draw() {
                 clear();
                 ctx.fillStyle = color;
-                rect(x - 15, y - 15, 30, 30);
+                rect(x - 50, y - 50, 100, 100);
 
                 
             }
@@ -68,16 +68,16 @@
                 if (dragok) {
                     x = e.pageX - canvas.offsetLeft;
                     y = e.pageY - canvas.offsetTop;
-                    if(y>436){
-                        y= 435;
+                    if(y>401){
+                        y= 400;
                     }
                 }
             }
 
             function myDown(e) {
-                if (e.pageX < x + 15 + canvas.offsetLeft && e.pageX > x - 15 +
-                    canvas.offsetLeft && e.pageY < y + 15 + canvas.offsetTop &&
-                    e.pageY > y - 15 + canvas.offsetTop) {
+                if (e.pageX < x + 50 + canvas.offsetLeft && e.pageX > x - 50 +
+                    canvas.offsetLeft && e.pageY < y + 50 + canvas.offsetTop &&
+                    e.pageY > y - 50 + canvas.offsetTop) {
                     x = e.pageX - canvas.offsetLeft;
                     y = e.pageY - canvas.offsetTop;
 
