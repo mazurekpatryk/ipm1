@@ -25,12 +25,17 @@
         const ctx = canvas.getContext('2d');
         var btnGeneruj = document.getElementById("btnGeneruj");
 
+        let rect = ctx.fillRect(0, 0, 0, 0);;
+
         btnGeneruj.addEventListener("click", function(){
-            let rect = ctx.fillRect(10, 10, 50, 50);
+            ctx.fillStyle = "rgb(" + Math.floor(Math.random()*255) + "," + Math.floor(Math.random()*255) + "," + Math.floor(Math.random()*255) +")";
+            rect = ctx.fillRect(10, 10, 50, 50);
+
         });
 
+        console.log(rect);
 
-
+        
 
     </script>
 </body>
