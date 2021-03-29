@@ -23,7 +23,7 @@
 <body>
     <div class="container">
         <h1>Lista:</h1>
-        <ol type="1" contenteditable="true" class="gradient-list">
+        <ol id="list" type="1" contenteditable="true" class="gradient-list">
             <li class="dropzone" id='0' draggable="true">List item 1</li>
             <li class="dropzone" id='1' draggable="true">List item 2</li>
             <li class="dropzone" id='2' draggable="true">List item 3</li>
@@ -49,12 +49,17 @@
                 }
             }
 
-            /*var list_ol = document.getElementsByTagName("ol");
+            var list_ol = document.getElementsByTagName("ol");
             if (list_.length == 0) {
                 console.log(list_.length);
-                list_ol.insertAdjacentHTML('beforeend', 'co');
+                var ul = document.getElementById("list");
+                var li = document.createElement("li");
+                li.setAttribute("class","dropzone");
+                li.setAttribute("draggable","true");
+                li.appendChild(document.createTextNode("."));
+                ul.appendChild(li);
             }
-            */
+
 
         })
 
