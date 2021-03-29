@@ -38,16 +38,24 @@
         let indexDrop;
         let list;
 
-        document.addEventListener("keypress", function(){
+        document.addEventListener("keydown", function () {
             var list_ = document.getElementsByTagName("li");
-        console.log(list_[1].id);
-        for (let i = 1; i < list_.length; i += 1) {
-                
-                if(list_[i].id == list_[i-1].id){
-                    let nr = list_.length+1;
+            //console.log(list_[1].id);
+            for (let i = 1; i < list_.length; i += 1) {
+
+                if (list_[i].id == list_[i - 1].id) {
+                    let nr = list_.length + 1;
                     list_[i].setAttribute("id", nr);
                 }
             }
+
+            /*var list_ol = document.getElementsByTagName("ol");
+            if (list_.length == 0) {
+                console.log(list_.length);
+                list_ol.insertAdjacentHTML('beforeend', 'co');
+            }
+            */
+
         })
 
 
