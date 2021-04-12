@@ -30,6 +30,10 @@ $(document).ready(function(){
 function addCustomer(){
 	var name = $('#name').val();
 	var email = $('#email').val();
+    var surname = $('#surname').val();
+	var postcode = $('#postcode').val();
+    var phonenumber = $('#phonenumber').val();
+	
 	
 	var transaction = db.transaction(["customers"],"readwrite");
 	//Ask for ObjectStore
@@ -38,7 +42,10 @@ function addCustomer(){
 	//Define Customer
 	var customer = {
 		name: name,
-		email: email
+		email: email,
+        surname: surname,
+        postcode: postcode,
+        phonenumber: phonenumber
 	};
 	
 	//Perform the Add
@@ -70,7 +77,10 @@ function showCustomers(e){
 			output += "<tr id='customer_"+cursor.value.id+"'>";
 			output += "<td>"+cursor.value.id+"</td>";
 			output += "<td><span class='cursor customer' contenteditable='true' data-field='name' data-id='"+cursor.value.id+"'>"+cursor.value.name+"</span></td>";
+            output += "<td><span class='cursor customer' contenteditable='true' data-field='surname' data-id='"+cursor.value.id+"'>"+cursor.value.surname+"</span></td>";
 			output += "<td><span class='cursor customer' contenteditable='true' data-field='email' data-id='"+cursor.value.id+"'>"+cursor.value.email+"</span></td>";
+            output += "<td><span class='cursor customer' contenteditable='true' data-field='phonenumber' data-id='"+cursor.value.id+"'>"+cursor.value.phonenumber+"</span></td>";
+            output += "<td><span class='cursor customer' contenteditable='true' data-field='postcode' data-id='"+cursor.value.id+"'>"+cursor.value.postcode+"</span></td>";
 			output += "<td><a onclick='removeCustomer("+cursor.value.id+")' href=''>Delete</a></td>";
 			output += "</tr>";
 			cursor.continue();
