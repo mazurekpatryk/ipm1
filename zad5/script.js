@@ -14,7 +14,7 @@ $(document).ready(function(){
 	
 
 	request.onsuccess = function(e){
-		console.log('Success: Opened Database...');
+		console.log('Sukces: Uruchomiana baza danych...');
 		db = e.target.result;
 
 		showCustomers();
@@ -22,7 +22,7 @@ $(document).ready(function(){
 	
 
 	request.onerror = function(e){
-		console.log('Error: Could Not Open Database...');
+		console.log('Błąd: Nie można uruchomic bazy danych...');
 	};
 });
 
@@ -55,7 +55,7 @@ function addCustomer(){
 	};
 	
 	request.onerror = function(e){
-		alert("Sorry, the customer was not added");
+		alert("Klient nie został dodany");
 		console.log('Error', e.target.error.name);
 	};
 }
@@ -96,7 +96,7 @@ function removeCustomer(id){
 	};
 	
 	request.onerror = function(e){
-		alert("Sorry, the customer was not removed");
+		alert("Klient nie został usunięty");
 		console.log('Error', e.target.error.name);
 	};
 }
@@ -127,11 +127,11 @@ $('#customers').on('blur','.customer',function(){
 		var requestUpdate = store.put(data);
 		
 		requestUpdate.onsuccess = function(){
-			console.log('Customer field updated...');
+			console.log('Nie można zaaktualizować pola...');
 		};
 		
 		requestUpdate.onerror = function(){
-			console.log('Error: Customer field NOT updated...');
+			console.log('Bład: klient nie został zaaktualizowany...');
 		};
 	};
 });
