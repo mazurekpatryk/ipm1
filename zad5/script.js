@@ -120,6 +120,12 @@ function clearCustomers(){
 	window.location.href="index.html";
 }
 
+function searchCustomers(){
+	var search = $('#searchClient').val();
+
+	console.log(search);
+}
+
 $('#customers').on('blur','.customer',function(){
 	var newText = $(this).html();
 	var field = $(this).data('field');

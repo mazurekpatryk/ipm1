@@ -34,30 +34,37 @@
 
             </div>
             <div class="main">
-                <h1 class="page-header">Klienci</h1>
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Imię</th>
-                                <th>Nazwisko</th>
-                                <th>Email Address</th>
-                                <th>Numer telefonu</th>
-                                <th>Adres</th>
-                                <th>Numer NIP</th>
-                                <th>Numer dowodu</th>
-                                <th>Kod pocztowy</th>
-                                <th>Miasto</th>
-                                <th>Usuń</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody id="customers">
+                <h1 class="page-header">Wyszukaj klienta</h1>
+            <form role="form" onsubmit="searchCustomers()">
+                <div class="form-group">
+                    <input type="text" id="searchClient" required>
+                </div></br>
+                <button type="submit" class="button-secondary">Znajdź</button>
+            </form>
 
-                       </tbody>
-                    </table>
-                </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Imię</th>
+                            <th>Nazwisko</th>
+                            <th>Email Address</th>
+                            <th>Numer telefonu</th>
+                            <th>Adres</th>
+                            <th>Numer NIP</th>
+                            <th>Numer dowodu</th>
+                            <th>Kod pocztowy</th>
+                            <th>Miasto</th>
+                            <th>Usuń</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="customers_s">
+
+                    </tbody>
+                </table>
+            </div>
             </div>
         </div>
     </div>
