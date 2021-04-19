@@ -33,7 +33,10 @@ function addCustomer(){
     var surname = $('#surname').val();
 	var postcode = $('#postcode').val();
     var phonenumber = $('#phonenumber').val();
-	
+	var address = $('#address').val();
+	var city = $('#city').val();
+	var nipnumber = $('#nipnumber').val();
+	var idnumber = $('#idnumber').val();
 	
 	var transaction = db.transaction(["customers"],"readwrite");
 
@@ -45,7 +48,11 @@ function addCustomer(){
 		email: email,
         surname: surname,
         postcode: postcode,
-        phonenumber: phonenumber
+        phonenumber: phonenumber,
+		address: address,
+		city: city,
+		nipnumber: nipnumber,
+		idnumber: idnumber
 	};
 	
 	var request = store.add(customer);
@@ -75,7 +82,14 @@ function showCustomers(e){
             output += "<td><span class='cursor customer' contenteditable='true' data-field='surname' data-id='"+cursor.value.id+"'>"+cursor.value.surname+"</span></td>";
 			output += "<td><span class='cursor customer' contenteditable='true' data-field='email' data-id='"+cursor.value.id+"'>"+cursor.value.email+"</span></td>";
             output += "<td><span class='cursor customer' contenteditable='true' data-field='phonenumber' data-id='"+cursor.value.id+"'>"+cursor.value.phonenumber+"</span></td>";
+
+			output += "<td><span class='cursor customer' contenteditable='true' data-field='postcode' data-id='"+cursor.value.id+"'>"+cursor.value.address+"</span></td>";
+			
+			output += "<td><span class='cursor customer' contenteditable='true' data-field='postcode' data-id='"+cursor.value.id+"'>"+cursor.value.nipnumber+"</span></td>";
+			output += "<td><span class='cursor customer' contenteditable='true' data-field='postcode' data-id='"+cursor.value.id+"'>"+cursor.value.idnumber+"</span></td>";
+			
             output += "<td><span class='cursor customer' contenteditable='true' data-field='postcode' data-id='"+cursor.value.id+"'>"+cursor.value.postcode+"</span></td>";
+			output += "<td><span class='cursor customer' contenteditable='true' data-field='postcode' data-id='"+cursor.value.id+"'>"+cursor.value.city+"</span></td>";
 			output += "<td><a onclick='removeCustomer("+cursor.value.id+")' href=''>Delete</a></td>";
 			output += "</tr>";
 			cursor.continue();
