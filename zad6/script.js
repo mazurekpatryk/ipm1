@@ -220,7 +220,7 @@ function makeid(length) {
 }
 
 function makeText(txt) {
-	let random = txt[Math.floor(Math.random() * txt.length)];
+	let random = txt[Math.floor(Math.random() * (txt.length-1))];
 	return random;
 }
 
