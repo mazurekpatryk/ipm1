@@ -187,18 +187,31 @@ $('#customers').on('blur','.customer',function(){
 	};
 });
 
+function makeid(length) {
+    var result           = [];
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+   }
+   return result.join('');
+}
 
+function makeText(txt) {
+    let random = txt[Math.floor(Math.random() * txt.length)];
+    return random;
+}
 
 document.getElementById('genrateData').onclick = function(e) {
-	document.getElementById('name').value = 'wiok';
-	document.getElementById('surname').value = 'wiok'; 
+	document.getElementById('name').value = makeText(['Paweł', 'Krzysiek', 'Marta', 'Krystyna', 'Janusz', 'Danuta']);
+	document.getElementById('surname').value = makeText(['Malinowska', 'Kowlaska', 'Rydz', 'Kania', 'Mazur', 'Krzak']);
 	document.getElementById('email').value = Math.random().toString(36).substring(2, 5) + Math.random().toString(36).substring(2, 5) + '@' + Math.random().toString(36).substring(2, 5) + '.com';
-	document.getElementById('address').value = 'wiok'; 
-	document.getElementById('postcode').value = (Math.floor(Math.random() * 89 + 10) + '-' + Math.floor(Math.random() * 899 + 100)).toString();; 
-	document.getElementById('city').value = 'wiok'; 
+	document.getElementById('address').value = makeText(['Lewa', 'Prawa', 'Długa', 'Kryształowa', 'Mazowiecka', 'Warszawska']) + ' ' + (Math.floor(Math.random() * 89 + 10)).toString(); 
+	document.getElementById('postcode').value = (Math.floor(Math.random() * 89 + 10) + '-' + Math.floor(Math.random() * 899 + 100)).toString(); 
+	document.getElementById('city').value = makeText(['Kalisz', 'Szczecin', 'Warszawa', 'Gdynia', 'Łódź', 'Wolbórz']); 
 	document.getElementById('phonenumber').value = Math.floor(Math.random() * 899 + 100).toString() + '-' + Math.floor(Math.random() * 899 + 100).toString() + '-' + Math.floor(Math.random() * 899 + 100).toString(); 
 	document.getElementById('nipnumber').value =  Math.floor(Math.random() * 899 + 100).toString() + '-' + Math.floor(Math.random() * 89 + 10).toString() + '-' + Math.floor(Math.random() * 89 + 10).toString() + '-' + Math.floor(Math.random() * 899 + 100).toString(); 
-	document.getElementById('idnumber').value = bigAlphabet[Math.floor(Math.random() * bigAlphabet.length)] + bigAlphabet[Math.floor(Math.random() * bigAlphabet.length)] + bigAlphabet[Math.floor(Math.random() * bigAlphabet.length)] + Math.floor(Math.random() * 899999 + 100000).toString();  
+	document.getElementById('idnumber').value = makeid(3) + ' ' + Math.floor(Math.random() * 899999 + 100000).toString();  
 }
 
 
