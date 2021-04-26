@@ -34,42 +34,35 @@
 
             </div>
             <div class="main">
-                <h1 class="page-header">Wyszukaj klienta</h1>
+                <h1 class="page-header">Klienci</h1>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Imię</th>
+                                <th>Nazwisko</th>
+                                <th>Email Address</th>
+                                <th>Numer telefonu</th>
+                                <th>Adres</th>
+                                <th>Numer NIP</th>
+                                <th>Numer dowodu</th>
+                                <th>Kod pocztowy</th>
+                                <th>Miasto</th>
+                                <th>Usuń</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="customers">
 
-                <div class="form-group">
-                    <input type="text" id="searchClient" required>
-                </div></br>
-                <button onclick="searchCustomers()" class="button-secondary">Znajdź</button>
-
-
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Imię</th>
-                            <th>Nazwisko</th>
-                            <th>Email Address</th>
-                            <th>Numer telefonu</th>
-                            <th>Adres</th>
-                            <th>Numer NIP</th>
-                            <th>Numer dowodu</th>
-                            <th>Kod pocztowy</th>
-                            <th>Miasto</th>
-                            <th>Usuń</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody id="customers_s">
-
-                    </tbody>
-                </table>
-            </div>
+                       </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
     <script src="script.js"></script>
 
 </body>
