@@ -189,3 +189,17 @@ $('#customers').on('blur','.customer',function(){
 
 
 
+document.getElementById('genrateData').onclick = function(e) {
+	document.getElementById('name').value = 'wiok';
+	document.getElementById('surname').value = 'wiok'; 
+	document.getElementById('email').value = Math.random().toString(36).substring(2, 5) + Math.random().toString(36).substring(2, 5) + '@' + Math.random().toString(36).substring(2, 5) + '.com';
+	document.getElementById('address').value = 'wiok'; 
+	document.getElementById('postcode').value = (Math.floor(Math.random() * 89 + 10) + '-' + Math.floor(Math.random() * 899 + 100)).toString();; 
+	document.getElementById('city').value = 'wiok'; 
+	document.getElementById('phonenumber').value = Math.floor(Math.random() * 899 + 100).toString() + '-' + Math.floor(Math.random() * 899 + 100).toString() + '-' + Math.floor(Math.random() * 899 + 100).toString(); 
+	document.getElementById('nipnumber').value =  Math.floor(Math.random() * 899 + 100).toString() + '-' + Math.floor(Math.random() * 89 + 10).toString() + '-' + Math.floor(Math.random() * 89 + 10).toString() + '-' + Math.floor(Math.random() * 899 + 100).toString(); 
+	document.getElementById('idnumber').value = bigAlphabet[Math.floor(Math.random() * bigAlphabet.length)] + bigAlphabet[Math.floor(Math.random() * bigAlphabet.length)] + bigAlphabet[Math.floor(Math.random() * bigAlphabet.length)] + Math.floor(Math.random() * 899999 + 100000).toString();  
+}
+
+
+

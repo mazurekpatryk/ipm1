@@ -26,3 +26,14 @@ a:link, a:visited {
   text-decoration: none;
   display: inline-block;
 }
+
+input {
+  border: 2px solid black; 
+}
+
+input:valid {
+  border: 2px solid green; 
+}
+
+input:invalid {
+  border: 2px solid red; 
