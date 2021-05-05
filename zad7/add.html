@@ -74,15 +74,12 @@
                 <button type="submit" class="button-secondary">Dodaj klienta</button>
             </form>
             <button id="genrateData" class="button-secondary">Generuj dane</button>
-            <button id="change" class="button-secondary">Zamień wielkość liter</button>
+            <button id="change" class="button-secondary" onclick="workerFunction()">Zamień wielkość liter</button>
 
         </div>
     </div>
     </div>
 
-    <p>Count numbers: <output id="result"></output></p>
-    <button onclick="startWorker()">Start Worker</button>
-    <button onclick="stopWorker()">Stop Worker</button>
 
 
     <script>
@@ -94,83 +91,85 @@
     <script src="script.js"></script>
 
     <script>
-        
+        function workerFunction() {
 
 
-        document.getElementById('change').onclick = function (e) {
-            let name = $('#name').val();
-            var email = $('#email').val();
-            var surname = $('#surname').val();
-            var postcode = $('#postcode').val();
-            var phonenumber = $('#phonenumber').val();
-            var address = $('#address').val();
-            var city = $('#city').val();
-            var nipnumber = $('#nipnumber').val();
-            var idnumber = $('#idnumber').val();
+            document.getElementById('change').onclick = function (e) {
+                let name = $('#name').val();
+                var email = $('#email').val();
+                var surname = $('#surname').val();
+                var postcode = $('#postcode').val();
+                var phonenumber = $('#phonenumber').val();
+                var address = $('#address').val();
+                var city = $('#city').val();
+                var nipnumber = $('#nipnumber').val();
+                var idnumber = $('#idnumber').val();
 
-            let txt = '{"name": "' + name + '", "surname": "' + surname + '", "email": "' + email +
-                '", "postcode": "' + postcode + '", "phonenumber": "' + phonenumber + '", "address": "' + address +
-                '", "city": "' + city + '", "nipnumber": "' + nipnumber + '", "idnumber": "' + idnumber + '"}';
-            let objJson = JSON.parse(txt);
-            console.log(objJson);
+                let txt = '{"name": "' + name + '", "surname": "' + surname + '", "email": "' + email +
+                    '", "postcode": "' + postcode + '", "phonenumber": "' + phonenumber + '", "address": "' +
+                    address +
+                    '", "city": "' + city + '", "nipnumber": "' + nipnumber + '", "idnumber": "' + idnumber + '"}';
+                let objJson = JSON.parse(txt);
+                console.log(objJson);
 
-            ///
+                ///
+                if (typeof (Worker) !== "undefined") {
+                    if (typeof (w) == "undefined") {
+                        w = new Worker("demo_workers.js");
+                    }
 
-            ///
-            //
-            document.getElementById('name').value = changeSize(name);
-            document.getElementById('surname').value = changeSize(surname);
-            document.getElementById('email').value = changeSize(email);
-            document.getElementById('address').value = changeSize(address);
-            document.getElementById('postcode').value = changeSize(postcode);
-            document.getElementById('city').value = changeSize(city);
-            document.getElementById('phonenumber').value = changeSize(phonenumber);
-            document.getElementById('nipnumber').value = changeSize(nipnumber);
-            document.getElementById('idnumber').value = changeSize(idnumber);
+                    w.addEventListener('message', function (e) {
+                        $('#name').val(e.data["name"]);
+                        $('#email').val(e.data["email"]);
+                        $('#surname').val(e.data["surname"]);
+                        $('#postcode').val(e.data["postcode"]);
+                        $('#phonenumber').val(e.data["phonenumber"]);
+                        $('#address').val(e.data["address"]);
+                        $('#city').val(e.data["city"]);
+                        $('#nipnumber').val(e.data["nipnumber"]);
+                        $('#idnumber').val(e.data["idnumber"]);
+                    }, false);
+                    w.postMessage(objJson);
 
-            //
-            console.log(name);
-        }
-
-
-
-        function changeSize(txt) {
-            let newtxt = "";
-
-            for (let i = 0; i < txt.length; ++i) {
-                var value = txt.charAt(i);
-                if (value == value.toUpperCase()) {
-                    newtxt += txt.charAt(i).toLowerCase();
                 } else {
-                    newtxt += txt.charAt(i).toUpperCase();
+                    console.log("Sorry, your browser does not support Web Workers...");
                 }
             }
 
-            return newtxt;
+            ///
+            //
+            // document.getElementById('name').value = changeSize(name);
+            // document.getElementById('surname').value = changeSize(surname);
+            // document.getElementById('email').value = changeSize(email);
+            // document.getElementById('address').value = changeSize(address);
+            // document.getElementById('postcode').value = changeSize(postcode);
+            // document.getElementById('city').value = changeSize(city);
+            // document.getElementById('phonenumber').value = changeSize(phonenumber);
+            // document.getElementById('nipnumber').value = changeSize(nipnumber);
+            // document.getElementById('idnumber').value = changeSize(idnumber);
 
+            // //
+            // console.log(name);
         }
 
 
-        var w;
 
-        function startWorker() {
-            if (typeof (Worker) !== "undefined") {
-                if (typeof (w) == "undefined") {
-                    w = new Worker("demo_workers.js");
-                }
-                w.onmessage = function (event) {
-                    document.getElementById("result").innerHTML = event.data;
-                };
-            } else {
-                document.getElementById("result").innerHTML =
-                    "Sorry, your browser does not support Web Workers...";
-            }
-        }
+        // function changeSize(txt) {
+        //     let newtxt = "";
 
-        function stopWorker() {
-            w.terminate();
-            w = undefined;
-        }
+        //     for (let i = 0; i < txt.length; ++i) {
+        //         var value = txt.charAt(i);
+        //         if (value == value.toUpperCase()) {
+        //             newtxt += txt.charAt(i).toLowerCase();
+        //         } else {
+        //             newtxt += txt.charAt(i).toUpperCase();
+        //         }
+        //     }
+
+        //     return newtxt;
+
+        // }
+
     </script>
 </body>
 
