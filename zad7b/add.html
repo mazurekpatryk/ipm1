@@ -12,11 +12,27 @@
 
     <style>
         .center {
-            margin: auto;
+            margin: 0 auto;
             width: 50%;
             padding: 10px;
             text-align: center;
         }
+
+        #image{
+            margin: 0 auto;
+            margin-top: 50px;
+            width: 500px;
+            height: 500px;
+            background-position: center; 
+        }
+
+        #filter{
+            margin-top: 50px;
+            width: 500px;
+            height: 500px;
+            opacity: 50%;
+        }
+
     </style>
 </head>
 
@@ -83,8 +99,11 @@
             <button id="addImage" class="button-secondary" onclick="workerFunctionReadLink()">Pobierz link</button>
 
         </div>
+        <div id="image">
+            <div id="filter"></div>
+        </div>
         
-
+        <img id="img_alt" src="" alt="">
     </div>
 
 
@@ -134,13 +153,16 @@
                         colorR = e.data["colorR"];
                         colorG = e.data["colorG"];
                         colorB = e.data["colorB"];
-                        //console.log(colorR + " " + colorG + " " + colorB);
+                        document.getElementById("filter").style.backgroundColor = "rgb(" + colorR +", " + colorG + ", " + colorB + ")";
                     }, false);
                     w.postMessage(objJson);
 
                 } else {
                     console.log("Sorry, your browser does not support Web Workers...");
                 }
+                
+                let url = "url('" + addressImg + "')";
+                document.getElementById("image").style.backgroundImage = url;
             }
         }
 

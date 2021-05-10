@@ -139,7 +139,7 @@ this.addEventListener('message', function (e) {
     //console.log(colorR + " " + colorG + " " + colorB);
     
     let stringJson = '{"colorR": "' + colorR + '", "colorG": "' + colorG + '", "colorB": "' + colorB + '", "colorB": "' + colorB +'"}';
-    
+
     let objJson_2 = JSON.parse(stringJson);
     this.postMessage(objJson_2);
 
