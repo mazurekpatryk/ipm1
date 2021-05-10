@@ -1,9 +1,9 @@
 function sumLetter(txt) {
     let newtxt = "";
+    let sum = 0;
 
     for (let i = 0; i < txt.length; ++i) {
         var value = txt.charAt(i);
-        let sum = 0;
 
         if(value == 'a'){
             sum += 1;
@@ -119,27 +119,26 @@ function sumLetter(txt) {
 
 
 this.addEventListener('message', function (e) {
-    let addressImg = changeSize(e.data["addressImg"]);
-    var colorR = changeSize(e.data["colorR"]);
-    var colorG = changeSize(e.data["colorG"]);
-    var colorB = changeSize(e.data["colorB"]);
-    let name = changeSize(e.data["name"]);
-    var email = changeSize(e.data["email"]);
-    var surname = changeSize(e.data["surname"]);
-    var postcode = changeSize(e.data["postcode"]);
-    var phonenumber = changeSize(e.data["phonenumber"]);
-    var address = changeSize(e.data["address"]);
-    var city = changeSize(e.data["city"]);
-    var nipnumber = changeSize(e.data["nipnumber"]);
-    var idnumber = changeSize(e.data["idnumber"]);
-
-
-
-    let stringJson = '{"addressImg": "' + addressImg + '", "colorR": "' + colorR + '", "colorG": "' + colorG +
-                    '", "colorB": "' + colorB + '", "name": "' + name + '", "surname": "' + surname + '", "email": "' + email +
-                    '", "postcode": "' + postcode + '", "phonenumber": "' + phonenumber + '", "address": "' +
-                    address +
-                    '", "city": "' + city + '", "nipnumber": "' + nipnumber + '", "idnumber": "' + idnumber +'"}';
+    
+    let sum = 0;
+    sum += sumLetter(e.data["addressImg"]);
+    sum += sumLetter(e.data["name"]);
+    sum += sumLetter(e.data["email"]);
+    sum += sumLetter(e.data["surname"]);
+    sum += sumLetter(e.data["postcode"]);
+    sum += sumLetter(e.data["phonenumber"]);
+    sum += sumLetter(e.data["address"]);
+    sum += sumLetter(e.data["city"]);
+    sum += sumLetter(e.data["nipnumber"]);
+    sum += sumLetter(e.data["idnumber"]);
+    
+    var colorR = sum % 255;
+    var colorG = 255 - (sum % 255);
+    var colorB = (0.5*colorR>125)?99:199;
+    
+    //console.log(colorR + " " + colorG + " " + colorB);
+    
+    let stringJson = '{"colorR": "' + colorR + '", "colorG": "' + colorG + '", "colorB": "' + colorB + '", "colorB": "' + colorB +'"}';
     
     let objJson_2 = JSON.parse(stringJson);
     this.postMessage(objJson_2);

@@ -131,19 +131,10 @@
                     }
 
                     w.addEventListener('message', function (e) {
-                        $('#addressImg').val(e.data["addressImg"]);
-                        $('#colorR').val(e.data["colorR"]);
-                        $('#colorG').val(e.data["colorG"]);
-                        $('#colorB').val(e.data["colorB"]);
-                        $('#name').val(e.data["name"]);
-                        $('#email').val(e.data["email"]);
-                        $('#surname').val(e.data["surname"]);
-                        $('#postcode').val(e.data["postcode"]);
-                        $('#phonenumber').val(e.data["phonenumber"]);
-                        $('#address').val(e.data["address"]);
-                        $('#city').val(e.data["city"]);
-                        $('#nipnumber').val(e.data["nipnumber"]);
-                        $('#idnumber').val(e.data["idnumber"]);
+                        colorR = e.data["colorR"];
+                        colorG = e.data["colorG"];
+                        colorB = e.data["colorB"];
+                        //console.log(colorR + " " + colorG + " " + colorB);
                     }, false);
                     w.postMessage(objJson);
 
@@ -199,39 +190,7 @@
                 }
             }
 
-            ///
-            //
-            // document.getElementById('name').value = changeSize(name);
-            // document.getElementById('surname').value = changeSize(surname);
-            // document.getElementById('email').value = changeSize(email);
-            // document.getElementById('address').value = changeSize(address);
-            // document.getElementById('postcode').value = changeSize(postcode);
-            // document.getElementById('city').value = changeSize(city);
-            // document.getElementById('phonenumber').value = changeSize(phonenumber);
-            // document.getElementById('nipnumber').value = changeSize(nipnumber);
-            // document.getElementById('idnumber').value = changeSize(idnumber);
-
-            // //
-            // console.log(name);
         }
-
-
-
-        // function changeSize(txt) {
-        //     let newtxt = "";
-
-        //     for (let i = 0; i < txt.length; ++i) {
-        //         var value = txt.charAt(i);
-        //         if (value == value.toUpperCase()) {
-        //             newtxt += txt.charAt(i).toLowerCase();
-        //         } else {
-        //             newtxt += txt.charAt(i).toUpperCase();
-        //         }
-        //     }
-
-        //     return newtxt;
-
-        // }
 
     </script>
 </body>
