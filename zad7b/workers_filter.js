@@ -2,6 +2,7 @@ function sumLetter(txt) {
     let newtxt = "";
     let sum = 0;
 
+    if(txt != null)
     for (let i = 0; i < txt.length; ++i) {
         var value = txt.charAt(i);
 
@@ -136,7 +137,7 @@ this.addEventListener('message', function (e) {
     var colorG = 255 - (sum % 255);
     var colorB = (0.5*colorR>125)?99:199;
     
-    //console.log(colorR + " " + colorG + " " + colorB);
+    console.log(colorR + " " + colorG + " " + colorB);
     
     let stringJson = '{"colorR": "' + colorR + '", "colorG": "' + colorG + '", "colorB": "' + colorB + '", "colorB": "' + colorB +'"}';
 

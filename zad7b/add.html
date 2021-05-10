@@ -89,8 +89,7 @@
                 </div>
                 <div class="form-group">
                     <label>Link grafiki</label>
-                    <input type="text" id="addressImg" placeholder="/photo.png"
-                        required>
+                    <input type="text" id="addressImg" placeholder="/photo.png" required>
                 </div></br>
                 <button type="submit" class="button-secondary">Dodaj klienta</button>
             </form>
@@ -103,15 +102,10 @@
             <div id="filter"></div>
         </div>
         
-        <img id="img_alt" src="" alt="">
     </div>
 
 
 
-
-    <script>
-
-    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
@@ -120,6 +114,9 @@
     <script>
 
         function workerFunctionReadLink(){
+
+            let w;
+
             document.getElementById('addImage').onclick = function (e) {
                 let addressImg = $('#addressImg').val();
                 let colorR = 0;
@@ -147,28 +144,32 @@
                 if (typeof (Worker) !== "undefined") {
                     if (typeof (w) == "undefined") {
                         w = new Worker("workers_filter.js");
-                    }
+                    }else {
+                    console.log("Tuuu!");
+                }
 
                     w.addEventListener('message', function (e) {
                         colorR = e.data["colorR"];
                         colorG = e.data["colorG"];
                         colorB = e.data["colorB"];
                         document.getElementById("filter").style.backgroundColor = "rgb(" + colorR +", " + colorG + ", " + colorB + ")";
+                        let url = "url('" + addressImg + "')";
+                        document.getElementById("image").style.backgroundImage = url;
                     }, false);
                     w.postMessage(objJson);
-
+                    
                 } else {
                     console.log("Sorry, your browser does not support Web Workers...");
                 }
                 
-                let url = "url('" + addressImg + "')";
-                document.getElementById("image").style.backgroundImage = url;
+                
             }
         }
 
 
         function workerFunction() {
 
+            let w;
 
             document.getElementById('change').onclick = function (e) {
                 let name = $('#name').val();
@@ -192,6 +193,8 @@
                 if (typeof (Worker) !== "undefined") {
                     if (typeof (w) == "undefined") {
                         w = new Worker("demo_workers.js");
+                    }else {
+                        console.log("Tuuu!");
                     }
 
                     w.addEventListener('message', function (e) {
