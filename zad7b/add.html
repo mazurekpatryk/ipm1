@@ -117,6 +117,7 @@
 
             let w;
 
+
             document.getElementById('addImage').onclick = function (e) {
                 let addressImg = $('#addressImg').val();
                 let colorR = 0;
@@ -140,7 +141,7 @@
                 let objJson = JSON.parse(txt);
                 console.log(objJson);
 
-                ///
+                
                 if (typeof (Worker) !== "undefined") {
                     if (typeof (w) == "undefined") {
                         w = new Worker("workers_filter.js");
