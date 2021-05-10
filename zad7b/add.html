@@ -70,22 +70,18 @@
                 <div class="form-group">
                     <label>Numer dowodu</label>
                     <input type="text" id="idnumber" placeholder="ABC 123456" pattern="[A-Za-z]{3} [0-9]{6}" required>
+                </div>
+                <div class="form-group">
+                    <label>Link grafiki</label>
+                    <input type="text" id="addressImg" placeholder="/photo.png"
+                        required>
                 </div></br>
                 <button type="submit" class="button-secondary">Dodaj klienta</button>
             </form>
             <button id="genrateData" class="button-secondary">Generuj dane</button>
             <button id="change" class="button-secondary" onclick="workerFunction()">Zamień wielkość liter</button>
-
-
-            <form role="form" onsubmit="">
-                <h1 class="page-header">Dodaj grafike</h1>
-                <div class="form-group">
-                    <label>Link grafiki</label>
-                    <input type="text" id="addressImg" placeholder="/photo.png"
-                        required>
-                </div>
-            </form>
             <button id="addImage" class="button-secondary" onclick="workerFunctionReadLink()">Pobierz link</button>
+
         </div>
         
 
@@ -110,19 +106,35 @@
                 let colorR = 0;
                 let colorG = 0;
                 let colorB = 0;
+                let name = $('#name').val();
+                var email = $('#email').val();
+                var surname = $('#surname').val();
+                var postcode = $('#postcode').val();
+                var phonenumber = $('#phonenumber').val();
+                var address = $('#address').val();
+                var city = $('#city').val();
+                var nipnumber = $('#nipnumber').val();
+                var idnumber = $('#idnumber').val();
 
                 let txt = '{"addressImg": "' + addressImg + '", "colorR": "' + colorR + '", "colorG": "' + colorG +
-                    '", "colorB": "' + colorB + '"}';
+                    '", "colorB": "' + colorB + '", "name": "' + name + '", "surname": "' + surname + '", "email": "' + email +
+                    '", "postcode": "' + postcode + '", "phonenumber": "' + phonenumber + '", "address": "' +
+                    address +
+                    '", "city": "' + city + '", "nipnumber": "' + nipnumber + '", "idnumber": "' + idnumber +'"}';
                 let objJson = JSON.parse(txt);
                 console.log(objJson);
 
                 ///
                 if (typeof (Worker) !== "undefined") {
                     if (typeof (w) == "undefined") {
-                        w = new Worker("demo_workers.js");
+                        w = new Worker("workers_filter.js");
                     }
 
                     w.addEventListener('message', function (e) {
+                        $('#addressImg').val(e.data["addressImg"]);
+                        $('#colorR').val(e.data["colorR"]);
+                        $('#colorG').val(e.data["colorG"]);
+                        $('#colorB').val(e.data["colorB"]);
                         $('#name').val(e.data["name"]);
                         $('#email').val(e.data["email"]);
                         $('#surname').val(e.data["surname"]);
