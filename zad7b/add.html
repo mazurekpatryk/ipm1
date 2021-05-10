@@ -76,9 +76,21 @@
             <button id="genrateData" class="button-secondary">Generuj dane</button>
             <button id="change" class="button-secondary" onclick="workerFunction()">Zamień wielkość liter</button>
 
+
+            <form role="form" onsubmit="">
+                <h1 class="page-header">Dodaj grafike</h1>
+                <div class="form-group">
+                    <label>Link grafiki</label>
+                    <input type="text" id="addressImg" placeholder="/photo.png"
+                        required>
+                </div>
+            </form>
+            <button id="addImage" class="button-secondary" onclick="workerFunctionReadLink()">Pobierz link</button>
         </div>
+        
+
     </div>
-    </div>
+
 
 
 
@@ -91,6 +103,45 @@
     <script src="script.js"></script>
 
     <script>
+
+        function workerFunctionReadLink(){
+            document.getElementById('addImage').onclick = function (e) {
+                let addressImg = $('#addressImg').val();
+                let colorR = 0;
+                let colorG = 0;
+                let colorB = 0;
+
+                let txt = '{"addressImg": "' + addressImg + '", "colorR": "' + colorR + '", "colorG": "' + colorG +
+                    '", "colorB": "' + colorB + '"}';
+                let objJson = JSON.parse(txt);
+                console.log(objJson);
+
+                ///
+                if (typeof (Worker) !== "undefined") {
+                    if (typeof (w) == "undefined") {
+                        w = new Worker("demo_workers.js");
+                    }
+
+                    w.addEventListener('message', function (e) {
+                        $('#name').val(e.data["name"]);
+                        $('#email').val(e.data["email"]);
+                        $('#surname').val(e.data["surname"]);
+                        $('#postcode').val(e.data["postcode"]);
+                        $('#phonenumber').val(e.data["phonenumber"]);
+                        $('#address').val(e.data["address"]);
+                        $('#city').val(e.data["city"]);
+                        $('#nipnumber').val(e.data["nipnumber"]);
+                        $('#idnumber').val(e.data["idnumber"]);
+                    }, false);
+                    w.postMessage(objJson);
+
+                } else {
+                    console.log("Sorry, your browser does not support Web Workers...");
+                }
+            }
+        }
+
+
         function workerFunction() {
 
 
