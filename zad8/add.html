@@ -30,9 +30,13 @@
             margin-top: 50px;
             width: 500px;
             height: 500px;
-            opacity: 50%;
         }
 
+        .viewport {
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+        }
     </style>
 </head>
 
@@ -98,10 +102,18 @@
             <button id="addImage" class="button-secondary" onclick="workerFunctionReadLink()">Pobierz link</button>
 
         </div>
+
+        <canvas class="viewport" id="raed">
+
+        </canvas>
+
+        <canvas class="viewport" id="show">
+
+        </canvas>
+
         <div id="image">
             <div id="filter"></div>
         </div>
-        
     </div>
 
 
@@ -113,110 +125,7 @@
 
     <script>
 
-        function workerFunctionReadLink(){
-
-            let w;
-
-
-            document.getElementById('addImage').onclick = function (e) {
-                let addressImg = $('#addressImg').val();
-                let colorR = 0;
-                let colorG = 0;
-                let colorB = 0;
-                let name = $('#name').val();
-                var email = $('#email').val();
-                var surname = $('#surname').val();
-                var postcode = $('#postcode').val();
-                var phonenumber = $('#phonenumber').val();
-                var address = $('#address').val();
-                var city = $('#city').val();
-                var nipnumber = $('#nipnumber').val();
-                var idnumber = $('#idnumber').val();
-
-                let txt = '{"addressImg": "' + addressImg + '", "colorR": "' + colorR + '", "colorG": "' + colorG +
-                    '", "colorB": "' + colorB + '", "name": "' + name + '", "surname": "' + surname + '", "email": "' + email +
-                    '", "postcode": "' + postcode + '", "phonenumber": "' + phonenumber + '", "address": "' +
-                    address +
-                    '", "city": "' + city + '", "nipnumber": "' + nipnumber + '", "idnumber": "' + idnumber +'"}';
-                let objJson = JSON.parse(txt);
-                console.log(objJson);
-
-                
-                if (typeof (Worker) !== "undefined") {
-                    if (typeof (w) == "undefined") {
-                        w = new Worker("workers_filter.js");
-                    }else {
-                    console.log("Tuuu!");
-                }
-
-                    w.addEventListener('message', function (e) {
-                        colorR = e.data["colorR"];
-                        colorG = e.data["colorG"];
-                        colorB = e.data["colorB"];
-                        document.getElementById("filter").style.backgroundColor = "rgb(" + colorR +", " + colorG + ", " + colorB + ")";
-                        let url = "url('" + addressImg + "')";
-                        document.getElementById("image").style.backgroundImage = url;
-                    }, false);
-                    w.postMessage(objJson);
-                    
-                } else {
-                    console.log("Sorry, your browser does not support Web Workers...");
-                }
-                
-                
-            }
-        }
-
-
-        function workerFunction() {
-
-            let w;
-
-            document.getElementById('change').onclick = function (e) {
-                let name = $('#name').val();
-                var email = $('#email').val();
-                var surname = $('#surname').val();
-                var postcode = $('#postcode').val();
-                var phonenumber = $('#phonenumber').val();
-                var address = $('#address').val();
-                var city = $('#city').val();
-                var nipnumber = $('#nipnumber').val();
-                var idnumber = $('#idnumber').val();
-
-                let txt = '{"name": "' + name + '", "surname": "' + surname + '", "email": "' + email +
-                    '", "postcode": "' + postcode + '", "phonenumber": "' + phonenumber + '", "address": "' +
-                    address +
-                    '", "city": "' + city + '", "nipnumber": "' + nipnumber + '", "idnumber": "' + idnumber + '"}';
-                let objJson = JSON.parse(txt);
-                console.log(objJson);
-
-                ///
-                if (typeof (Worker) !== "undefined") {
-                    if (typeof (w) == "undefined") {
-                        w = new Worker("demo_workers.js");
-                    }else {
-                        console.log("Tuuu!");
-                    }
-
-                    w.addEventListener('message', function (e) {
-                        $('#name').val(e.data["name"]);
-                        $('#email').val(e.data["email"]);
-                        $('#surname').val(e.data["surname"]);
-                        $('#postcode').val(e.data["postcode"]);
-                        $('#phonenumber').val(e.data["phonenumber"]);
-                        $('#address').val(e.data["address"]);
-                        $('#city').val(e.data["city"]);
-                        $('#nipnumber').val(e.data["nipnumber"]);
-                        $('#idnumber').val(e.data["idnumber"]);
-                    }, false);
-                    w.postMessage(objJson);
-
-                } else {
-                    console.log("Sorry, your browser does not support Web Workers...");
-                }
-            }
-
-        }
+ 
 
     </script>
 </body>
