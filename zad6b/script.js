@@ -62,9 +62,9 @@ function addCustomer() {
 
 	var request = store.add(customer);
 
-	request.onsuccess = function (e) {
-		window.location.href = "index.html";
-	};
+	// request.onsuccess = function (e) {
+	// 	window.location.href = "index.html";
+	// };
 
 	request.onerror = function (e) {
 		alert("Klient nie został dodany");
