@@ -126,7 +126,7 @@ function clearCustomers() {
 }
 
 
-
+let flag_do_wyswietlania_w_wyszukiwaniu_wszystkich_elementow_na_poczatku = 0;
 
 function searchCustomers() {
 
@@ -252,8 +252,8 @@ if (input != null) {
 		request.onsuccess = function (event) {
 			var cursor = event.target.result;
 			if (cursor) {
-				console.log(cursor.value.id)
-				if (cursor.value.name.toLowerCase().includes(keyword) || cursor.value.surname.toLowerCase().includes(keyword) || cursor.value.email.toLowerCase().includes(keyword) || cursor.value.phonenumber.toLowerCase().includes(keyword) || cursor.value.idnumber.toLowerCase().includes(keyword) || cursor.value.nipnumber.toLowerCase().includes(keyword) || cursor.value.city.toLowerCase().includes(keyword) || cursor.value.address.toLowerCase().includes(keyword) || cursor.value.postcode.toLowerCase().includes(keyword)) {
+				//console.log(cursor.value.id)
+				if (cursor.value.name.toLowerCase().includes(keyword) || cursor.value.surname.toLowerCase().includes(keyword) || cursor.value.email.toLowerCase().includes(keyword) || cursor.value.phonenumber.toLowerCase().includes(keyword) || cursor.value.idnumber.toLowerCase().includes(keyword) || cursor.value.nipnumber.toLowerCase().includes(keyword) || cursor.value.city.toLowerCase().includes(keyword) || cursor.value.address.toLowerCase().includes(keyword) || cursor.value.postcode.toLowerCase().includes(keyword) || flag_do_wyswietlania_w_wyszukiwaniu_wszystkich_elementow_na_poczatku==1) {
 					output += "<tr id='customer_" + cursor.value.id + "'>";
 					output += "<td>" + cursor.value.id + "</td>";
 					output += "<td><span class='cursor customer' contenteditable='true' data-field='name' data-id='" + cursor.value.id + "'>" + cursor.value.name + "</span></td>";

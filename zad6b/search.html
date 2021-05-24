@@ -60,8 +60,7 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody id="customers_s">
-
+                    <tbody id="customers">
                     </tbody>
                 </table>
             </div>
@@ -70,8 +69,11 @@
     </div>
     
     <script>
-        document.getElementById("searchClient").value = " ";
-        document.getElementById("searchClient").value = "";
+        let idcustomers = document.getElementById('customers');
+        let searchClient = document.getElementById('searchClient');
+        searchClient.addEventListener('input', (e) => {
+            idcustomers.setAttribute('id', 'customers_s');
+        });
     </script>
 
 
