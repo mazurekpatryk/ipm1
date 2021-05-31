@@ -107,7 +107,7 @@ function showCustomers(e) {
 		var cursor = e.target.result;
 		if (cursor) {
 			output_2 += "<tr id='customer_" + cursor.value.id + "'>";
-			output_2 += "<td>" + '<label><input checked type="radio" name="food" value="' + cursor.value.name + ' ' + cursor.value.surname + ' ' + cursor.value.email + ' ' + cursor.value.phonenumber + ' ' + cursor.value.address + ' ' + cursor.value.nipnumber + ' ' + cursor.value.idnumber + ' ' + cursor.value.postcode + ' ' + cursor.value.city + ' ' + '"><a>' + cursor.value.id + "</a> </label>" + "</td>";
+			output_2 += "<td>" + '<label><input checked type="radio" name="food" value="' + cursor.value.name + ' ' + cursor.value.surname + ' ' + cursor.value.email + ' ' + cursor.value.phonenumber + ' ' + cursor.value.address +  ' ' + cursor.value.postcode + ' ' + cursor.value.city + ' ' + '"><a>' + cursor.value.id + "</a> </label>" + "</td>";
 			output_2 += "<td><span class='cursor customer' contenteditable='true' data-field='name' data-id='" + cursor.value.id + "'>" + cursor.value.name + "</span></td>";
 			output_2 += "<td><span class='cursor customer' contenteditable='true' data-field='surname' data-id='" + cursor.value.id + "'>" + cursor.value.surname + "</span></td>";
 			output_2 += "<td><span class='cursor customer' contenteditable='true' data-field='email' data-id='" + cursor.value.id + "'>" + cursor.value.email + "</span></td>";
@@ -252,12 +252,12 @@ function makeText(txt) {
 
 if (document.getElementById('genrateData') != null) {
 	document.getElementById('genrateData').onclick = function (e) {
-		document.getElementById('name').value = makeText(['Paweł', 'Krzysiek', 'Marta', 'Krystyna', 'Janusz', 'Danuta']);
+		document.getElementById('name').value = makeText(['Pawel', 'Krzysiek', 'Marta', 'Krystyna', 'Janusz', 'Danuta']);
 		document.getElementById('surname').value = makeText(['Malinowska', 'Kowlaska', 'Rydz', 'Kania', 'Mazur', 'Krzak']);
 		document.getElementById('email').value = Math.random().toString(36).substring(2, 5) + Math.random().toString(36).substring(2, 5) + '@' + Math.random().toString(36).substring(2, 5) + '.com';
-		document.getElementById('address').value = makeText(['Lewa', 'Prawa', 'Długa', 'Kryształowa', 'Mazowiecka', 'Warszawska']) + ' ' + (Math.floor(Math.random() * 89 + 10)).toString();
+		document.getElementById('address').value = makeText(['Lewa', 'Prawa', 'Dluga', 'Krysztalowa', 'Mazowiecka', 'Warszawska']) + ' ' + (Math.floor(Math.random() * 89 + 10)).toString();
 		document.getElementById('postcode').value = (Math.floor(Math.random() * 89 + 10) + '-' + Math.floor(Math.random() * 899 + 100)).toString();
-		document.getElementById('city').value = makeText(['Kalisz', 'Szczecin', 'Warszawa', 'Gdynia', 'Łódź', 'Wolbórz']);
+		document.getElementById('city').value = makeText(['Kalisz', 'Szczecin', 'Warszawa', 'Gdynia', 'Poznan', 'Zabrze']);
 		document.getElementById('phonenumber').value = Math.floor(Math.random() * 899 + 100).toString() + '-' + Math.floor(Math.random() * 899 + 100).toString() + '-' + Math.floor(Math.random() * 899 + 100).toString();
 		document.getElementById('nipnumber').value = Math.floor(Math.random() * 899 + 100).toString() + '-' + Math.floor(Math.random() * 89 + 10).toString() + '-' + Math.floor(Math.random() * 89 + 10).toString() + '-' + Math.floor(Math.random() * 899 + 100).toString();
 		document.getElementById('idnumber').value = makeid(3) + ' ' + Math.floor(Math.random() * 899999 + 100000).toString();

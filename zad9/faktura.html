@@ -30,6 +30,7 @@
 
             </div>
             <h1>Faktura</h1>
+            <p>Produkt:</p>
             <p id="wybranyProdukt"></p>
             <p>Dane:</p>
             <p id="wybranyKlient"></p>
@@ -62,12 +63,22 @@ var params = getSearchParameters();
             var queryString = new Array();
             result = "";
             item = "";
-            
+
+            var str = window.location.search;
+            var tmp = str.split('&');
+            var produkty = tmp[0].split('=');
+            var produkty = produkty[1].split('+');
+
+            var dane = tmp[1].split('=');
+            var dane = dane[1].split('+');
+
             klient = document.getElementById("wybranyKlient");
             klient.innerHTML = queryString
-            document.getElementById("wybranyKlient").innerHTML = " " + window.location.search;
+            document.getElementById("wybranyProdukt").innerHTML = produkty[0] + " " + produkty[1];
+            document.getElementById("wybranyKlient").innerHTML = "<b>Imie i naziwsko: </b>" + dane[0] + " " + dane[1] + "<br><b>E-mail: </b>" + dane[2] + "<br><b>Numer telefonu: </b>" + dane[3] + "<br><b>Adres: </b>" + dane[4] + " " + dane[5] + "<br><b>Kod Pocztowy i Miasto: </b>" + dane[6] + " " + dane[7];
         
-            console.log(findGetParameter(queryString))
+        
+            
         }
 
     
