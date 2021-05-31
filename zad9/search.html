@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        .center {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container center">
+        <div class="row">
+            <div class="sidebar">
+
+                <a href="index.html">Klienci</a>
+                <a href="add.html">Dodaj Klienta</a>
+                <a href="search.html">Wyszukaj Klienta</a>
+                <a onclick="clearCustomers()" class="danger" href="#">Usuń Wszystkich Klientów</a>
+
+            </div>
+            <div class="main">
+                <h1 class="page-header">Wyszukaj klienta</h1>
+
+                <div class="form-group">
+                    <input type="text" id="searchClient" required>
+                </div></br>
+                <!--<button onclick="searchCustomers()" class="button-secondary">Znajdź</button>-->
+
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Imię</th>
+                            <th>Nazwisko</th>
+                            <th>Email Address</th>
+                            <th>Numer telefonu</th>
+                            <th>Adres</th>
+                            <th>Numer NIP</th>
+                            <th>Numer dowodu</th>
+                            <th>Kod pocztowy</th>
+                            <th>Miasto</th>
+                            <th>Usuń</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="customers">
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let idcustomers = document.getElementById('customers');
+        let searchClient = document.getElementById('searchClient');
+        searchClient.addEventListener('input', (e) => {
+            idcustomers.setAttribute('id', 'customers_s');
+        });
+    </script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
