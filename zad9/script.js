@@ -107,7 +107,7 @@ function showCustomers(e) {
 		var cursor = e.target.result;
 		if (cursor) {
 			output_2 += "<tr id='customer_" + cursor.value.id + "'>";
-			output_2 += "<td>" + '<label><input checked type="radio" name="food" value="' + cursor.value.name + ' ' + cursor.value.surname + ' ' + cursor.value.email + ' ' + cursor.value.phonenumber + ' ' + cursor.value.address + ' ' + cursor.value.nipnumber + ' ' + cursor.value.idnumber + ' ' +  cursor.value.postcode + ' ' + cursor.value.city + ' ' + '"><a>' + cursor.value.id + "</a> </label>"+ "</td>";
+			output_2 += "<td>" + '<label><input checked type="radio" name="food" value="' + cursor.value.name + ' ' + cursor.value.surname + ' ' + cursor.value.email + ' ' + cursor.value.phonenumber + ' ' + cursor.value.address + ' ' + cursor.value.nipnumber + ' ' + cursor.value.idnumber + ' ' + cursor.value.postcode + ' ' + cursor.value.city + ' ' + '"><a>' + cursor.value.id + "</a> </label>" + "</td>";
 			output_2 += "<td><span class='cursor customer' contenteditable='true' data-field='name' data-id='" + cursor.value.id + "'>" + cursor.value.name + "</span></td>";
 			output_2 += "<td><span class='cursor customer' contenteditable='true' data-field='surname' data-id='" + cursor.value.id + "'>" + cursor.value.surname + "</span></td>";
 			output_2 += "<td><span class='cursor customer' contenteditable='true' data-field='email' data-id='" + cursor.value.id + "'>" + cursor.value.email + "</span></td>";
@@ -246,7 +246,7 @@ function makeid(length) {
 }
 
 function makeText(txt) {
-	let random = txt[Math.floor(Math.random() * (txt.length-1))];
+	let random = txt[Math.floor(Math.random() * (txt.length - 1))];
 	return random;
 }
 
@@ -279,7 +279,7 @@ if (input != null) {
 			var cursor = event.target.result;
 			if (cursor) {
 				//console.log(cursor.value.id)
-				if (cursor.value.name.toLowerCase().includes(keyword) || cursor.value.surname.toLowerCase().includes(keyword) || cursor.value.email.toLowerCase().includes(keyword) || cursor.value.phonenumber.toLowerCase().includes(keyword) || cursor.value.idnumber.toLowerCase().includes(keyword) || cursor.value.nipnumber.toLowerCase().includes(keyword) || cursor.value.city.toLowerCase().includes(keyword) || cursor.value.address.toLowerCase().includes(keyword) || cursor.value.postcode.toLowerCase().includes(keyword) || flag_do_wyswietlania_w_wyszukiwaniu_wszystkich_elementow_na_poczatku==1) {
+				if (cursor.value.name.toLowerCase().includes(keyword) || cursor.value.surname.toLowerCase().includes(keyword) || cursor.value.email.toLowerCase().includes(keyword) || cursor.value.phonenumber.toLowerCase().includes(keyword) || cursor.value.idnumber.toLowerCase().includes(keyword) || cursor.value.nipnumber.toLowerCase().includes(keyword) || cursor.value.city.toLowerCase().includes(keyword) || cursor.value.address.toLowerCase().includes(keyword) || cursor.value.postcode.toLowerCase().includes(keyword) || flag_do_wyswietlania_w_wyszukiwaniu_wszystkich_elementow_na_poczatku == 1) {
 					output += "<tr id='customer_" + cursor.value.id + "'>";
 					output += "<td>" + cursor.value.id + "</td>";
 					output += "<td><span class='cursor customer' contenteditable='true' data-field='name' data-id='" + cursor.value.id + "'>" + cursor.value.name + "</span></td>";
@@ -314,14 +314,14 @@ function buyProduct() {
 	console.log(nameProduct)
 
 	var dane = document.getElementsByName('food');
-              
-            for(i = 0; i < dane.length; i++) {
-                if(dane[i].checked)
-                console.log(dane[i].value);
-            }
 
-	request.onsuccess = function (e) {
-		window.location.href = "index.html";
-	};
+	for (i = 0; i < dane.length; i++) {
+		if (dane[i].checked)
+			console.log(dane[i].value);
+	}
+
+
+	
+
 
 }
