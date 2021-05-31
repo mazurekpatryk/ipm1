@@ -32,5 +32,39 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="script.js"></script>
+    <script type="text/javascript">
+
+function getSearchParameters() {
+    var prmstr = window.location.search.substr(1);
+    return prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
+}
+
+function transformToAssocArray( prmstr ) {
+    var params = {};
+    var prmarr = prmstr.split("&");
+    for ( var i = 0; i < prmarr.length; i++) {
+        var tmparr = prmarr[i].split("=");
+        params[tmparr[0]] = tmparr[1];
+    }
+    return params;
+}
+
+var params = getSearchParameters();
+
+
+        window.onload = function(){
+            var queryString = new Array();
+            result = "";
+            item = "";
+            
+            klient = document.getElementById("wybranyKlient");
+            klient.innerHTML = queryString
+            document.getElementById("wybranyKlient").innerHTML = " " + window.location.search;
+        
+            console.log(findGetParameter(queryString))
+        }
+
+    
+    </script>
 </body>
 </html>

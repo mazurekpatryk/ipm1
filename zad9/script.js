@@ -306,22 +306,31 @@ if (input != null) {
 
 }
 
+var nameProduct
+var dane 
 
 
 function buyProduct() {
-	var nameProduct = document.getElementById("mySelect").value;
+	nameProduct = document.getElementById("mySelect").value;
 
 	console.log(nameProduct)
 
-	var dane = document.getElementsByName('food');
+	dane = document.getElementsByName('food');
 
 	for (i = 0; i < dane.length; i++) {
 		if (dane[i].checked)
 			console.log(dane[i].value);
 	}
 
+	window.location = 'faktura.html'
+	console.log(window.location.href);
 
-	location.replace("faktura.html")
+	document.getElementById("wybranyProdukt").value = nameProduct;
+	document.getElementById("wybranyKlient").value = dane;
 
+	nameProductToFactura
 
 }
+
+
+

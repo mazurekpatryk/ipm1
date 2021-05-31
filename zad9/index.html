@@ -35,15 +35,15 @@
             </div>
             <div class="main">
                 <h1>Zakupy</h1>
-                <form role="form" onsubmit="buyProduct()">
+                <form action="faktura.html" method="get">
                     <h2>Wybierz produkt</h2>
                     
-                    <select id="mySelect">
-                        <option value="Marchewka 1zl">Marchewka 1zl</option>
-                        <option value="Seler 2zl">Seler 2zl</option>
-                        <option value="Por 3zl">Por 3zl</option>
-                        <option value="Ziemniak 4zl">Ziemniak 4zl</option>
-                      </select>
+
+                        <input type="radio" name="product" value="Marchewka 1zl" checked>Marchewka 1zl
+                        <input type="radio" name="product" value="Seler 2zl">Seler 2zl
+                        <input type="radio" name="product" value="Por 3zl">Por 3zl
+                        <input type="radio" name="product" value="Ziemniak 4zl">Ziemniak 4zl
+
 
                       <h2>Wybierz klienta</h2>
                       <div class="table-responsive">
@@ -71,7 +71,8 @@
                            </tbody>
                         </table>
                     </div></br>
-                    <button id="generujFakture" class="button-secondary">Dokonaj zakupu</button>
+                    <input type="submit" value="Dokonaj zakupu">
+
                 </form>
 
                 <h1 class="page-header">Dodaj użytkownika</h1>
