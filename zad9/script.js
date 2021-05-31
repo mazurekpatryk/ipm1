@@ -321,7 +321,7 @@ function buyProduct() {
 	}
 
 
-	
+	location.replace("faktura.html")
 
 
 }
