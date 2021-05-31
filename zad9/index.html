@@ -35,14 +35,14 @@
             </div>
             <div class="main">
                 <h1>Zakupy</h1>
-                <form role="form" onsubmit="">
+                <form role="form" onsubmit="buyProduct()">
                     <h2>Wybierz produkt</h2>
                     
-                    <select>
-                        <option>Marchewka</option>
-                        <option>Seler</option>
-                        <option>Por</option>
-                        <option>Ziemniak</option>
+                    <select id="mySelect">
+                        <option value="Marchewka 1zl">Marchewka 1zl</option>
+                        <option value="Seler 2zl">Seler 2zl</option>
+                        <option value="Por 3zl">Por 3zl</option>
+                        <option value="Ziemniak 4zl">Ziemniak 4zl</option>
                       </select>
 
                       <h2>Wybierz klienta</h2>
@@ -70,10 +70,9 @@
                                
                            </tbody>
                         </table>
-                    </div>
-
-                </form></br>
-                <button id="generujFakture" class="button-secondary">Dokonaj zakupu</button>
+                    </div></br>
+                    <button id="generujFakture" class="button-secondary">Dokonaj zakupu</button>
+                </form>
 
                 <h1 class="page-header">Dodaj użytkownika</h1>
                 <form role="form" onsubmit="addCustomer()">
@@ -203,7 +202,10 @@
             document.getElementById('idnumber').value = changeSize(idnumber);
 	
             //
-            console.log(name);
+            //console.log(name);
+
+
+
         }
     </script>
 

@@ -107,7 +107,7 @@ function showCustomers(e) {
 		var cursor = e.target.result;
 		if (cursor) {
 			output_2 += "<tr id='customer_" + cursor.value.id + "'>";
-			output_2 += "<td>" + '<label><input type="radio" name="food"><a>' + cursor.value.id + "</a> </label>"+ "</td>";
+			output_2 += "<td>" + '<label><input checked type="radio" name="food" value="' + cursor.value.name + ' ' + cursor.value.surname + ' ' + cursor.value.email + ' ' + cursor.value.phonenumber + ' ' + cursor.value.address + ' ' + cursor.value.nipnumber + ' ' + cursor.value.idnumber + ' ' +  cursor.value.postcode + ' ' + cursor.value.city + ' ' + '"><a>' + cursor.value.id + "</a> </label>"+ "</td>";
 			output_2 += "<td><span class='cursor customer' contenteditable='true' data-field='name' data-id='" + cursor.value.id + "'>" + cursor.value.name + "</span></td>";
 			output_2 += "<td><span class='cursor customer' contenteditable='true' data-field='surname' data-id='" + cursor.value.id + "'>" + cursor.value.surname + "</span></td>";
 			output_2 += "<td><span class='cursor customer' contenteditable='true' data-field='email' data-id='" + cursor.value.id + "'>" + cursor.value.email + "</span></td>";
@@ -303,5 +303,25 @@ if (input != null) {
 			$('#customers_s').html(output);
 		};
 	});
+
+}
+
+
+
+function buyProduct() {
+	var nameProduct = document.getElementById("mySelect").value;
+
+	console.log(nameProduct)
+
+	var dane = document.getElementsByName('food');
+              
+            for(i = 0; i < dane.length; i++) {
+                if(dane[i].checked)
+                console.log(dane[i].value);
+            }
+
+	request.onsuccess = function (e) {
+		window.location.href = "index.html";
+	};
 
 }
